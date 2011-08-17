@@ -1,0 +1,57 @@
+<application>
+	<name>Lorem Ipsum Generator</name>
+	<author>Matt Gifford aka coldfumonkeh http://www.mattgifford.co.uk/</author>
+	<version>1.0</version>
+	<email>coldfumonkeh@gmail.co.uk</email>
+	<description>
+		<![CDATA[
+			<p>This extension allows you to place Lorem Ipsum dummy text into active ColdFusion pages in the editor view.</p>
+		]]>
+	</description>
+	<license>
+		<![CDATA[
+			<p>This will cost you your soul. mwah hahaha.</p>
+		]]>
+	</license>
+	<menucontributions>
+		<contribution target="editor">
+			<menu name="Lipsum Generator">
+				<action
+					name="Generate Text"
+					handlerid="generateText"
+					showresponse="true">
+						<input 	name="start" 
+								label="Start with 'Lorem Ipsum'?" 
+								tooltip="Select if you'd like the dummy text to start with 'Lorem Ipsum'"
+								type="list"
+								required="true">
+							<option value="yes" />
+							<option value="no" />
+						</input>
+						<input 	name="method"
+								label="What format?"
+								tooltip="Select either 'words', 'paragraphs' or 'bytes'."
+								type="list"
+								required="true">
+							<option value="words" />
+							<option value="paragraphs" />
+							<option value="bytes" />	
+						</input>
+						<input 	name="number"
+								label="Total words, paragraphs or bytes to return."
+								tooltip="Enter the number of words, paragraphs or bytes to return."
+								helpmessage="Enter the number of words, paragraphs or bytes to return."
+								type="string"
+								pattern="^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$"
+								errormessage="Input must be a numeric value between 1 - 999."
+								default="2"
+								required="true" />
+				</action>
+			</menu>
+		</contribution>
+	</menucontributions>
+	<handlers>	
+		<!-- specific handlers -->
+		<handler id="generateText" 	type="cfm" filename="generateText.cfm" />
+	</handlers>
+</application>
